@@ -59,6 +59,59 @@ Depending on a context, items or expressions may become `item_statement` or `exp
 Expressions always return some kind of value (void/unit being considered a value).
 This is the most common and largest element group.
 
-## General information
+## General Information
 - Official file extension for source files is `.bri`.
-- Memory management: TODO.
+
+#### Memory Management
+Bicus will be a memory managed language, with a custom runtime that introduces Garbage Collection (GC).
+First versions of Bicus will have a very primitive GC, while in the future we might move to generational or heuristic-based GC.
+
+- traits
+```
+struct MyStruct { ... }
+
+trait MyTrait {
+    fn hello(self) -> int
+}
+
+impl MyTrait for MyStruct {
+    fn hello(self) -> int {} # Required here
+}
+
+impl MyTrait for i32 {
+    fn hello(self) -> int {} # Required here
+}
+
+struct AnotherStruct with MyTrait {
+    fn hello(self) -> int {} # Required here
+}
+
+func something<T: MyTrait>(value: T)
+func something(value: MyTrait)
+func something(value: *dyn MyTrait) # With VTable
+
+# Te dwa to to samo:
+func something<T: MyTrait>(value: T)
+func something(value: MyTrait)
+# Jeśli funkcja `something` jest wywołana, to kompilator generuje osobną funkcje dla każdego typu który był użyty.
+# Czyli:
+something(1 as i32)
+something(1 as u64)
+# Wygeneruje 2 osobne funkcje: `something$i32` i `something$u64` z osobnymi implementacjami dla tych typów.
+
+# A takie coś:
+func something(value: *dyn MyTrait)
+# Wygeneruje taką strukturę:
+struct MyTraitVTable {
+    inner: *any,
+    hello: *fn(*any) -> int
+}
+# I potraktuje tą funkcję jako:
+func something(value: MyTraitVTable)
+# I wywoła np `something(5)` jako:
+something(MyTraitVTable{
+    inner: &5,
+    hello: &MyStruct.hello
+})
+
+```

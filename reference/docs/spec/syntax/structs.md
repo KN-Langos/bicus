@@ -19,6 +19,8 @@ Structures can also be anonymous types, so that they can be inlined:
 Structure definitions may also contain methods, which is useful for `with` clauses (look into traits section).
 However, methods are allowed only after the last field of a struct.
 
+Structures can also work as named tuples, by using `struct Name(i32, u32)` syntax.
+
 There are a few attributes that are supported by structures, and those are:
 - `@[repr = "C"]` - Sets ABI representation of this struct to be C compatible.
 - `@[packed]` - Tells the compiler to pack values, even It it would mean lower performance.

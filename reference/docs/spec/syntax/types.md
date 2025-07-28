@@ -13,7 +13,7 @@ Those are primitives, which bicus defines internally:
 | `bool` | Logical value that can be either `false` or `true`. This is essentially an `i1`. |
 | `char` | Represents a single character of a string. This is unicode compatible, and has size of 21 bits. |
 | `unit` | Similar to `void` in some languages. this is a zero-sized value. |
-| `noreturn` | Tells the compiler that given function will never return. Useful for `panic` and infinite loops. |
+| `never` | Tells the compiler that given function will never return. Useful for `panic` and infinite loops. |
 
 ### Error types
 Errors are implemented as tagged unions:

@@ -13,3 +13,8 @@ However, this works only with `let` definitions.
 ```
 let value = undefined; // Will result in random memory in fast mode, and `0xaa` in safe mode.
 ```
+
+Variables also support pattern matching, but in a case where not all cases are covered, `else` branch must be provided.
+```
+const .some(value) = my_option else 0; // Else is a default value, it might also be `never`.
+```

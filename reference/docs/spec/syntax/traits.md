@@ -11,6 +11,7 @@ trait Greetable {
 ```
 
 Traits can also define default implementations that rely only on known values or compile-time reflection.
+Generic types can also be applied to traits, so `trait MyTrait<T> { ... }` is possible.
 
 Associated types are also available. One can think of them as output types of a given trait.
 For example we might define the following trait:

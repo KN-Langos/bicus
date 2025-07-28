@@ -38,6 +38,8 @@ There are also other special types that are `composites`, and can be broken into
 
 | Type | Description |
 | ---- | ----------- |
+| `*<T>` | Single-element pointer. This represents pointer to a value of type `<T>`. |
+| `*any` | Special kind of single-element pointer. This is a pointer of unknown type, similar to `*void` in some languages. |
 | `[<n>]<T>` | Arrays with given size. They represent `<n>` contiguous elements of type `<T>` in memory. |
 | `[*]<T>` | Multielement pointer. Tells the compiler that this is the first element of unknown-sized array of `<T>`. |
 | `[]<T>` | Slice. Represents a multielements pointer with a length. It is something like `(usize, []<T>)` under the hood. |

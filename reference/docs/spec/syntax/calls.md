@@ -1,2 +1,0 @@
-# Calls
-TODO: Remember about tail closures

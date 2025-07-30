@@ -1,3 +1,3 @@
 # Concurrency
 
-go like concurrency?
+go like concurrency with pipes and channels?

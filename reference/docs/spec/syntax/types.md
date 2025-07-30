@@ -44,5 +44,4 @@ There are also other special types that are `composites`, and can be broken into
 | `[*]<T>` | Multielement pointer. Tells the compiler that this is the first element of unknown-sized array of `<T>`. |
 | `[]<T>` | Slice. Represents a multielements pointer with a length. It is something like `(usize, []<T>)` under the hood. |
 | `(<T1>, ..., <TN>)` | Tuple. This works like an anonymous structure with fields named `0..N`, etc. |
-
-Note: In a safe mode `*any` will store info about which type it holds to avoid UB.
+| `\|<Args...>\| -> <T>` | Function, this takes anything (even closures) that have given types of arguments and return `<T>`. |

@@ -5,6 +5,13 @@ sidebar_position: 1
 # Introduction
 This is a language specification for "Bicus" programming language.
 
+Bicus is a modern general-purpose programming language for maintaining reusable, maintainable software.
+- **Reusable** - Everything, from basic math operations to http servers with TLS is defined in either `core` or `std` libraries,
+ensuring that code written once is available on as many platforms as possible.
+- **Maintainable** - Syntax is made to be as human-readable as possible.
+Also, even though Bicus is a compiled language, It features a custom runtime with garbage collection and concurrency support,
+ensuring programmers focus on what is really important: functionality and project structure.
+
 ## Syntax
 Syntax is described in detail in its own category, but here are some simpler/general syntax elements:
 

@@ -32,12 +32,9 @@ for i in 0..8 {
 }
 // Above is equivalent to:
 var _iter: core.iter.Iterator<Item=u32> = 0..8.into_iterator();
-var _i: Option<u32> = _iter.next();
 loop {
-  if match .none = _i { break; }
-  const .some(i) = _i; // else unreachable; might be necessary in stage 1 as we will not track possible variants yet.
+  const .some(i) = _i.next() else break;
   // Do something here.
-  _i = _iter.next();
 }
 ```
 In the provided example `i` can be replaced by any pattern that can be matched by any element of type `Iterator.Item` (same as with function parameters).

@@ -17,6 +17,7 @@ Here are all possible patterns available in bicus:
 | `(<pat>)` | Group | Used to group patterns together, useful for deeply nested patterns. |
 | `<pat> if <guard>` | Guard | Matches pattern `<pat>` only if `<guard>` expression return `true`. |
 
+TODO: What about matching integers and values?
 We know this part can be a bit confusing, so here are some examples of patterns in action:
 
 TODO
